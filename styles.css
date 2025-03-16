@@ -6,14 +6,60 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem 0;
+    background: -ms-linear-gradient(top, #00e1ff 0%, #4ee9ff 100%);
+    background: linear-gradient(to bottom, #00e1ff 0%, #4ee9ff 100%);
+    color: #27747f;
+    height: 22em;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 8em 1rem 0;
+    position: relative;
     text-align: center;
+    z-index: -1
 }
 
-main {
-    padding: 2rem;
+header {
+    height: 80vh;
+    padding: 10vh 1rem 0
+}
+
+header:after {
+    background: rgba(17, 79, 95, 0.1);
+    border-radius: 45%;
+    content: '';
+    height: 45vw;
+    left: 20%;
+    position: absolute;
+    top: 55%;
+    width: 60%;
+    z-index: -1
+}
+
+.pteranodon {
+    padding-top: 10em;
+    top: -90vh
+}
+
+.pteranodon:after {
+    height: 16em
+}
+
+main:before,
+main:after {
+    background: #22dff8;
+    border-radius: 50%;
+    content: '';
+    height: 50vw;
+    left: 0;
+    position: absolute;
+    top: -15vw;
+    width: 50vw;
+    z-index: -1
+}
+
+main:after {
+    left: auto;
+    right: 0
 }
 
 footer {
@@ -25,3 +71,4 @@ footer {
     width: 100%;
     bottom: 0;
 }
+
