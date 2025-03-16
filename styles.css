@@ -44,6 +44,82 @@ header:after {
     height: 16em
 }
 
+.pteranodon {
+    height: 12em;
+    padding-top: 0em;
+    position: absolute;
+    right: 4em;
+    top: -30em;
+    width: 12em;
+    animation: swing 6s linear infinite;
+    -webkit-animation: swing 6s linear infinite;
+    -ms-animation: swing 6s linear infinite;
+    -moz-animation: swing 6s linear infinite;
+    -o-animation: swing 6s linear infinite;
+    transform-origin: top center;
+    -webkit-transform-origin: top center;
+    -ms-transform-origin: top center;
+    -moz-transform-origin: top center;
+    -o-transform-origin: top center
+}
+
+.pteranodon:after {
+    background: #114f5f;
+    content: '';
+    height: 6em;
+    position: absolute;
+    right: 6em;
+    top: 0em;
+    width: 1px
+}
+
+.pteranodon svg {
+    height: 100%;
+    width: 100%
+}
+
+.triceratops {
+    height: 8em;
+    left: 5em;
+    position: absolute;
+    top: -7em;
+    z-index: 1;
+    animation: roam 6s linear infinite;
+    -webkit-animation: roam 6s linear infinite;
+    -ms-animation: roam 6s linear infinite;
+    -moz-animation: roam 6s linear infinite;
+    -o-animation: roam 6s linear infinite
+}
+
+.triceratops:after {
+    background: #114f5f;
+    content: '';
+    height: 1px;
+    position: absolute;
+    left: -6em;
+    top: 4em;
+    width: 12em
+}
+
+.triceratops svg {
+    height: 100%;
+    width: 100%
+}
+
+main {
+    background: #57ecdc;
+    color: #114f5f;
+    font-family: "Vollkorn", serif;
+    font-weight: normal;
+    letter-spacing: .02em;
+    position: relative
+}
+
+main:after {
+    left: auto;
+    right: 0
+}
+
 main:before,
 main:after {
     background: #22dff8;
@@ -57,9 +133,14 @@ main:after {
     z-index: -1
 }
 
-main:after {
-    left: auto;
-    right: 0
+main section {
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    padding: 1rem 1rem 4rem;
+    position: relative;
+    width: 80%;
+    max-width: 80em
 }
 
 footer {
