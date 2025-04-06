@@ -1,155 +1,87 @@
-body {
-    background-color: #24ffaf;
-    font-family: Arial, sans-serif;
+/* Reset defaults */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Navigation Bar */
 header {
-    background: -ms-linear-gradient(top, #00e1ff 0%, #4ee9ff 100%);
-    background: linear-gradient(to bottom, #00e1ff 0%, #4ee9ff 100%);
-    color: #27747f;
-    height: 22em;
-    margin: 0 auto;
-    overflow: hidden;
-    padding: 8em 1rem 0;
-    position: relative;
-    text-align: center;
-    z-index: -1
+    background: #fff;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-header {
-    height: 80vh;
-    padding: 10vh 1rem 0
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
 }
 
-header:after {
-    background: rgba(17, 79, 95, 0.1);
-    border-radius: 45%;
-    content: '';
-    height: 45vw;
-    left: 20%;
-    position: absolute;
-    top: 55%;
-    width: 60%;
-    z-index: -1
+nav ul li {
+    margin: 0 15px;
 }
 
-.pteranodon {
-    padding-top: 10em;
-    top: -90vh
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
 }
 
-.pteranodon:after {
-    height: 16em
+nav ul li a.active {
+    color: #2a9d8f;
+    /* Accent color */
 }
 
-.pteranodon {
-    height: 12em;
-    padding-top: 0em;
-    position: absolute;
-    right: 4em;
-    top: -30em;
-    width: 12em;
-    animation: swing 6s linear infinite;
-    -webkit-animation: swing 6s linear infinite;
-    -ms-animation: swing 6s linear infinite;
-    -moz-animation: swing 6s linear infinite;
-    -o-animation: swing 6s linear infinite;
-    transform-origin: top center;
-    -webkit-transform-origin: top center;
-    -ms-transform-origin: top center;
-    -moz-transform-origin: top center;
-    -o-transform-origin: top center
-}
-
-.pteranodon:after {
-    background: #114f5f;
-    content: '';
-    height: 6em;
-    position: absolute;
-    right: 6em;
-    top: 0em;
-    width: 1px
-}
-
-.pteranodon svg {
-    height: 100%;
-    width: 100%
-}
-
-.triceratops {
-    height: 8em;
-    left: 5em;
-    position: absolute;
-    top: -7em;
-    z-index: 1;
-    animation: roam 6s linear infinite;
-    -webkit-animation: roam 6s linear infinite;
-    -ms-animation: roam 6s linear infinite;
-    -moz-animation: roam 6s linear infinite;
-    -o-animation: roam 6s linear infinite
-}
-
-.triceratops:after {
-    background: #114f5f;
-    content: '';
-    height: 1px;
-    position: absolute;
-    left: -6em;
-    top: 4em;
-    width: 12em
-}
-
-.triceratops svg {
-    height: 100%;
-    width: 100%
-}
-
-main {
-    background: #57ecdc;
-    color: #114f5f;
-    font-family: "Vollkorn", serif;
-    font-weight: normal;
-    letter-spacing: .02em;
-    position: relative
-}
-
-main:after {
-    left: auto;
-    right: 0
-}
-
-main:before,
-main:after {
-    background: #22dff8;
-    border-radius: 50%;
-    content: '';
-    height: 50vw;
-    left: 0;
-    position: absolute;
-    top: -15vw;
-    width: 50vw;
-    z-index: -1
-}
-
-main section {
-    margin: 0 auto;
-    overflow: hidden;
-    margin-bottom: 2rem;
-    padding: 1rem 1rem 4rem;
-    position: relative;
-    width: 80%;
-    max-width: 80em
-}
-
-footer {
-    background-color: #333;
+/* Hero Section */
+#hero {
+    background: url('hero-image.jpg') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
+/* Content Sections */
+section {
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin-bottom: 20px;
+}
+
+.experience-item,
+.project-item {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    border-top: 1px solid #ddd;
+}

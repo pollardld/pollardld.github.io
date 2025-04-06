@@ -1,0 +1,34 @@
+{
+    "experience": [
+        {
+            "company": "Ecotrust",
+            "role": "Software Engineering Manager",
+            "date": "Jan 2025 - Present",
+            "description": "Leading software projects and strategic partnerships to deliver innovative solutions."
+        },
+        {
+            "company": "Ecotrust",
+            "role": "Senior Software Developer",
+            "date": "Jan 2021 - Jan 2025",
+            "description": "Led engineering projects focusing on ecosystem and community technology solutions."
+        },
+        {
+            "company": "Ecotrust",
+            "role": "Software Developer",
+            "date": "Jan 2018 - Jan 2021",
+            "description": "Developed tools for species migration monitoring and ecological decision support systems."
+        },
+        {
+            "company": "Alta Planning + Design",
+            "role": "Full Stack Developer",
+            "date": "Mar 2014 - Aug 2018",
+            "description": "Implemented digital solutions engaging over 600,000 participants in transportation planning."
+        },
+        {
+            "company": "Bisk Education",
+            "role": "Front End Developer",
+            "date": "Jan 2012 - Mar 2024",
+            "description": "Built a front-end framework for online education, enhancing user experience."
+        }
+    ]
+}
