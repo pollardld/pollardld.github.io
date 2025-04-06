@@ -29,9 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const div = document.createElement("div");
                 div.className = "experience-item";
                 div.innerHTML = `<h3>${exp.company}</h3>
-                         <h4>${exp.role}</h4>
-                         <p>${exp.date}</p>
-                         <p>${exp.description}</p>`;
+                        <h4>${exp.role}</h4>
+                        <p>${exp.date}</p>
+                        <p>${exp.description}</p>`;
                 experienceSection.appendChild(div);
             });
         })
