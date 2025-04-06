@@ -1,6 +1,6 @@
 # pollardld.github.io
 
-## Portfolio Website## Portfolio Website
+## Portfolio Website
 
 This is my personal portfolio website showcasing my projects and skills.
 
