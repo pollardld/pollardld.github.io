@@ -6,9 +6,14 @@ This is my personal portfolio website showcasing my projects and skills.
 
 ### Sections
 
-- **About Me**: A brief introduction about myself.
-- **Projects**: Details about my projects.
+- TBD
 
+### Links
+
+[LinkedIn](https://linkedin.com/in/pollardld)
+
+
+  
 ### How to Use
 
 1. Clone the repository.
