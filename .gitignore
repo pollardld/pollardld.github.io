@@ -8,3 +8,6 @@ logs/
 # Ignore OS files
 .DS_Store
 Thumbs.db
+
+# Source maps
+static/css/*.map
