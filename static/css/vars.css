@@ -1,0 +1,15 @@
+/* CSS Variables */
+:root {
+    --primary-color: #3498db;
+    --primary-color-light: #57ecdc;
+    --secondary-color: #114f5f;
+    --secondary-color-light: #27747f;
+    --accent-color: #e74c3c;
+    --grey: #7f8c8d;
+    --text-color: var(--secondary-color);
+    --font-family: 'Arial, sans-serif';
+    --font-size: 16px;
+    --line-height: 1.5;
+    --border-radius: 4px;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
