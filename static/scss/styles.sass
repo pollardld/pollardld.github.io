@@ -1,0 +1,28 @@
+@use "vars";
+
+body
+    font-family: var(--font-family);
+    margin: 0;
+    background: var(--primary-color-light);
+
+
+header 
+    background: linear-gradient(to bottom, #00e1ff 0%, #4ee9ff 100%);
+    padding: 10vh 1rem 0;
+    text-align: center;
+
+    nav 
+        ul 
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+
+            a 
+                text-decoration: none;
+                color: var(--secondary-color);
+
+                &:hover 
+                    color: var(--accent-color);
