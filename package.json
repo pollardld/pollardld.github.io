@@ -2,8 +2,8 @@
   "name": "pollardld-portfolio",
   "private": true,
   "scripts": {
-    "build:css": "sass static/scss/styles.sass static/css/styles.css --style=compressed",
-    "watch:css": "sass static/scss/styles.sass static/css/styles.css --watch"
+    "build:css": "sass static/sass/styles.sass static/css/styles.css --style=compressed",
+    "watch:css": "sass static/sass/styles.sass static/css/styles.css --watch"
   },
   "devDependencies": {
     "sass": "^1.77.0"
