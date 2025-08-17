@@ -1,0 +1,102 @@
+body {
+  margin: 0;
+}
+@mixin vendor-prefix ($name, $argument) {
+  #{$name}: $argument;
+  -webkit-#{$name}: $argument;
+  -ms-#{$name}: $argument;
+  -moz-#{$name}: $argument;
+  -o-#{$name}: $argument;
+}
+
+@-webkit-keyframes swing {
+	0% {
+		-webkit-transform: rotateZ(0);
+	}
+	25% {
+		-webkit-transform: rotateZ(15deg);
+	}
+	50% {
+		-webkit-transform: rotateZ(0);
+	}
+	75% {
+		-webkit-transform: rotateZ(-15deg);
+	}
+	100% {
+		-webkit-transform: rotateZ(0);
+	}
+}
+
+@keyframes swing {
+	0% {
+		@include vendor-prefix (transform, rotateZ(0));
+	}
+	25% {
+		@include vendor-prefix (transform, rotateZ(10deg));
+	}
+	50% {
+		@include vendor-prefix (transform, rotateZ(0));
+	}
+	75% {
+		@include vendor-prefix (transform, rotateZ(-8deg));
+	}
+	100% {
+		@include vendor-prefix (transform, rotateZ(0));
+	}
+}
+
+$lookup: 'Cabin Sketch', Helvetica, sans-serif;
+$cubano: 'Cabin Sketch', sans-serif;
+$sky: #4EE9FF;
+$blue: #27747F;
+$lightgreen: #57ECDC;
+$green: #2BAEC2;
+$grey: #114F5F;
+$lightgrey: #22DFF8;
+$orange: #FF6E2B;
+
+body 
+	background: #4EE9FF;
+	height: 100vh;
+	-webkit-font-smoothing: antialiased;
+
+h1 
+	font-family: $lookup;
+	font-size: 20vh;
+	font-weight: bold;
+	margin: 10vh 0 5vh;
+
+h2 
+	font-family: $cubano;
+	font-size: 10vh;
+	font-weight: normal;
+	margin: 0;
+
+header
+	background: -ms-linear-gradient(top, #00e1ff 0%,#4ee9ff 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #00e1ff 0%,#4ee9ff 100%); /* W3C */
+	color: $blue;
+	height: 80vh;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 10vh 1rem 0;
+	position: relative;
+	text-align: center;
+	z-index: -1;
+
+	.pteranodon
+		bottom: 10vh;
+		height: 45vh;
+		padding-top: 10vh;
+		position: absolute;
+		right: 5vw;
+		width: 25vw;
+		@include vendor-prefix (animation, swing 6s linear infinite);
+		@include vendor-prefix (transform-origin, top center);
+		transform-origin: 30% 40%;
+
+		
+
+		svg
+			height: 100%;
+			width: 100%;
