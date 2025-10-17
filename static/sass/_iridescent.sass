@@ -1,0 +1,90 @@
+/* --- Iridescent utility ----------------------------------------------- */
+/* Tunable custom properties */
+:root
+  --iridescent-speed: 12s /* rotation speed */
+  --iridescent-intensity: 0.55 /* 0–1, how vivid the hues appear */
+  --iridescent-grain: 0.2 /* 0–1, subtle texture strength */
+  --iridescent-tilt: 25deg /* tilt for light sweep */
+
+/* Animatable angle for conic gradient */
+@property --ir-angle
+  syntax: "<angle>"
+  initial-value: 0deg
+  inherits: false
+
+@keyframes ir-rotate
+  to
+    --ir-angle: 360deg
+
+div
+  margin: 1rem 2rem
+  padding: 1.5rem 2rem
+  width: 80%
+
+/* Apply to any element */
+.iridescent
+  position: relative
+  isolation: isolate /* contain the blend */
+
+  /* Optional base—looks like pearl */
+  background: linear-gradient(
+    145deg,
+    hsl(220 20% 96%) 0%,
+    hsl(0 0% 100%) 40%,
+    hsl(220 25% 94%) 100%
+  )
+  box-shadow: inset 0 0.5px 0.5px hsl(0 0% 100% / 0.7),
+    inset 0 -0.5px 1px hsl(220 30% 30% / 0.08),
+    0 1px 2px hsl(220 40% 10% / 0.15)
+  border-radius: 0.6rem
+
+  /* The magic lives on a pseudo-element so it overlays any shape */
+  &::before
+    content: ""
+    position: absolute
+    inset: 0
+    border-radius: inherit
+    pointer-events: none
+    mix-blend-mode: hard-light /* brings the nacre pop */
+    filter: saturate(50%) contrast(calc(1 + var(--iridescent-intensity) * 0.5))
+
+    /* Base “pearl” film + spectral interference */
+    background:
+      /* fine pearly striations (subtle noise-ish) */ repeating-linear-gradient(
+        calc(90deg + var(--iridescent-tilt)),
+        hsl(0 0% 100% / 0) 0,
+        hsl(0 0% 100% / calc(var(--iridescent-grain) * 0.15)) 2px,
+        hsl(0 0% 100% / 0) 4px
+      ),
+      /* spectral conic sweep */ conic-gradient(
+        from var(--ir-angle) at calc(var(--mx, 50%)) calc(var(--my, 40%)),
+        hsl(200 90% 80% / 0) 0deg,
+        hsl(210 90% 80% / var(--iridescent-intensity)) 20deg,
+        hsl(270 85% 80% / var(--iridescent-intensity)) 60deg,
+        hsl(320 90% 80% / var(--iridescent-intensity)) 90deg,
+        hsl(50 95% 80% / var(--iridescent-intensity)) 140deg,
+        hsl(160 90% 80% / var(--iridescent-intensity)) 200deg,
+        hsl(200 90% 80% / 0) 300deg
+      )
+    background-blend-mode: soft-light, screen
+    animation: ir-rotate var(--iridescent-speed) linear infinite
+
+  /* Quiet down for motion-sensitive users */
+  @media (prefers-reduced-motion: reduce)
+    &::before
+      animation: none
+
+  /* Optional: a beveled, pearly border */
+  &.iridescent--bevel
+    border: 1px solid hsl(0 0% 100% / 0.5)
+    box-shadow: inset 0 0 0 1px hsl(220 20% 80% / 0.25),
+      inset 0 1px 6px hsl(220 40% 20% / 0.08),
+      0 0.5px 1px hsl(220 50% 10% / 0.15)
+
+/* Optional shape helpers */
+.iridescent--pill
+  border-radius: 1em
+
+.iridescent--circle
+  border-radius: 50%
+  aspect-ratio: 1
