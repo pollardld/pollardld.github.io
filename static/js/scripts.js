@@ -137,7 +137,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     setupReveal();
 
-    const orbs = Array.from(document.querySelectorAll("[data-orb]"));
     if (!prefersReducedMotion && orbs.length) {
         const moveOrbs = event => {
             const intensity = 18;
