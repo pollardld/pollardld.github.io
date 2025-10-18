@@ -71,7 +71,7 @@ function attachIridescence(el, opts = {}) {
     };
 }
 
-const cleanup = attachIridescence(document.getElementById("hero"), {
+const cleanup = attachIridescence(document.getElementById("top-nav"), {
     follow: "pointer", // or 'center' or another element
     damping: 0.1 // lower = snappier, higher = floaty
 });

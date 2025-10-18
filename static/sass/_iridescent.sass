@@ -24,7 +24,7 @@ div
 /* Apply to any element */
 .iridescent
   position: relative
-  isolation: isolate /* contain the blend */
+  isolation: isolate
 
   /* Optional base—looks like pearl */
   background: linear-gradient(
@@ -33,9 +33,7 @@ div
     hsl(0 0% 100%) 40%,
     hsl(220 25% 94%) 100%
   )
-  box-shadow: inset 0 0.5px 0.5px hsl(0 0% 100% / 0.7),
-    inset 0 -0.5px 1px hsl(220 30% 30% / 0.08),
-    0 1px 2px hsl(220 40% 10% / 0.15)
+  box-shadow: inset 0 0.5px 0.5px hsl(0 0% 100% / 0.7), inset 0 -0.5px 1px hsl(220 30% 30% / 0.08), 0 1px 2px hsl(220 40% 10% / 0.15)
   border-radius: 0.6rem
 
   /* The magic lives on a pseudo-element so it overlays any shape */
@@ -45,18 +43,16 @@ div
     inset: 0
     border-radius: inherit
     pointer-events: none
-    mix-blend-mode: hard-light /* brings the nacre pop */
+    mix-blend-mode: hard-light
     filter: saturate(50%) contrast(calc(1 + var(--iridescent-intensity) * 0.5))
 
     /* Base “pearl” film + spectral interference */
-    background:
-      /* fine pearly striations (subtle noise-ish) */ repeating-linear-gradient(
+    background: repeating-linear-gradient(
         calc(90deg + var(--iridescent-tilt)),
         hsl(0 0% 100% / 0) 0,
         hsl(0 0% 100% / calc(var(--iridescent-grain) * 0.15)) 2px,
         hsl(0 0% 100% / 0) 4px
-      ),
-      /* spectral conic sweep */ conic-gradient(
+    ), conic-gradient(
         from var(--ir-angle) at calc(var(--mx, 50%)) calc(var(--my, 40%)),
         hsl(200 90% 80% / 0) 0deg,
         hsl(210 90% 80% / var(--iridescent-intensity)) 20deg,
@@ -65,7 +61,7 @@ div
         hsl(50 95% 80% / var(--iridescent-intensity)) 140deg,
         hsl(160 90% 80% / var(--iridescent-intensity)) 200deg,
         hsl(200 90% 80% / 0) 300deg
-      )
+    )
     background-blend-mode: soft-light, screen
     animation: ir-rotate var(--iridescent-speed) linear infinite
 
@@ -77,9 +73,7 @@ div
   /* Optional: a beveled, pearly border */
   &.iridescent--bevel
     border: 1px solid hsl(0 0% 100% / 0.5)
-    box-shadow: inset 0 0 0 1px hsl(220 20% 80% / 0.25),
-      inset 0 1px 6px hsl(220 40% 20% / 0.08),
-      0 0.5px 1px hsl(220 50% 10% / 0.15)
+    box-shadow: inset 0 0 0 1px hsl(220 20% 80% / 0.25), inset 0 1px 6px hsl(220 40% 20% / 0.08), 0 0.5px 1px hsl(220 50% 10% / 0.15)
 
 /* Optional shape helpers */
 .iridescent--pill
