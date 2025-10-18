@@ -497,3 +497,49 @@ main
         transform: scale(1.05) rotate(2deg)
     100%
         transform: scale(1.02) rotate(-2deg)
+
+/* Small accent components */
+.chip
+    display: inline-block
+    padding: 0.25rem 0.6rem
+    border-radius: 999px
+    border: 1px solid var(--color-border)
+    color: var(--color-ink-secondary)
+    background: linear-gradient(135deg, rgba(127,125,251,0.12), rgba(99,251,215,0.08))
+    margin: 0.15rem 0.25rem 0 0
+
+.now-badge
+    display: inline-block
+    font-size: 0.85rem
+    color: var(--color-ink-secondary)
+    padding: 0.35rem 0.6rem
+    border-radius: 0.5rem
+    border: 1px solid var(--color-border)
+    background: linear-gradient(135deg, rgba(71,197,255,0.15), rgba(202,169,255,0.1))
+
+/* Reveal on scroll */
+.reveal
+    opacity: 0
+    transform: translateY(16px) scale(0.98)
+    filter: blur(2px)
+    transition: opacity 500ms var(--transition-base), transform 600ms var(--transition-base), filter 600ms var(--transition-base)
+
+.revealed
+    opacity: 1
+    transform: none
+    filter: none
+
+/* Subtle 3D tilt */
+.tilt
+    transform-style: preserve-3d
+    will-change: transform
+    transition: transform 200ms var(--transition-base), box-shadow var(--transition-base)
+
+.tilt:hover, .tilt:focus-within
+    transform: rotateX(var(--tiltX, 0deg)) rotateY(var(--tiltY, 0deg))
+
+@media (prefers-reduced-motion: reduce)
+    .reveal
+        opacity: 1
+        transform: none
+        filter: none
