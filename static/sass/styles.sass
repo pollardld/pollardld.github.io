@@ -1,6 +1,27 @@
 @use "vars"
 @use "iridescent"
 
+:root
+    /* Accent wash for backgrounds (dark defaults) */
+    --bg-iris: rgba(127, 125, 251, 0.18)
+    --bg-sky: rgba(71, 197, 255, 0.18)
+    --bg-aqua: rgba(99, 251, 215, 0.12)
+    --bg-rose: rgba(202, 169, 255, 0.18)
+
+    /* Hero gradient stops */
+    --hero-start: rgba(222, 233, 162, 0.20)
+    --hero-stop: rgba(160, 240, 248, 0.28)
+
+html[data-theme='light']
+    /* Slightly soften overlays on light theme */
+    --bg-iris: rgba(127, 125, 251, 0.12)
+    --bg-sky: rgba(71, 197, 255, 0.12)
+    --bg-aqua: rgba(99, 251, 215, 0.10)
+    --bg-rose: rgba(202, 169, 255, 0.14)
+
+    --hero-start: rgba(222, 233, 162, 0.14)
+    --hero-stop: rgba(160, 240, 248, 0.18)
+
 *
     box-sizing: border-box
 
@@ -11,7 +32,7 @@ body
     margin: 0
     font-family: var(--font-sans)
     color: var(--color-ink-primary)
-    background: radial-gradient(120% 140% at 15% 10%, rgba(127, 125, 251, 0.18), transparent 58%), radial-gradient(120% 120% at 85% 15%, rgba(71, 197, 255, 0.18), transparent 60%), var(--color-background)
+    background: radial-gradient(120% 140% at 15% 10%, var(--bg-iris), transparent 58%), radial-gradient(120% 120% at 85% 15%, var(--bg-sky), transparent 60%), var(--color-background)
     min-height: 100vh
     line-height: 1.6
     position: relative
@@ -21,21 +42,30 @@ body::before
     content: ""
     position: fixed
     inset: 0
-    background: linear-gradient(125deg, rgba(127, 125, 251, 0.18), rgba(99, 251, 215, 0.12), rgba(202, 169, 255, 0.18))
+    background: linear-gradient(125deg, var(--bg-iris), var(--bg-aqua), var(--bg-rose))
     mix-blend-mode: screen
     opacity: 0.7
     animation: shimmer 18s ease-in-out infinite alternate
     z-index: -2
 
+html[data-theme='light'] body::before
+    /* Screen can wash out on light—use multiply and lower strength */
+    mix-blend-mode: multiply
+    opacity: 0.55
+
 body::after
     content: ""
     position: fixed
     inset: -15% -25%
-    background: radial-gradient(60% 60% at 30% 20%, rgba(71, 197, 255, 0.25), transparent 70%), radial-gradient(45% 55% at 75% 60%, rgba(202, 169, 255, 0.22), transparent 70%), var(--color-background-glow)
+    background: radial-gradient(60% 60% at 30% 20%, var(--bg-sky), transparent 70%), radial-gradient(45% 55% at 75% 60%, var(--bg-rose), transparent 70%), var(--color-background-glow)
     filter: saturate(130%)
     opacity: 0.9
     animation: drift 26s ease-in-out infinite alternate
     z-index: -3
+
+html[data-theme='light'] body::after
+    filter: saturate(115%)
+    opacity: 0.8
 
 @media (prefers-reduced-motion: reduce)
     body::before, body::after
@@ -125,6 +155,7 @@ a
     flex-wrap: wrap
 
     a
+        color: var(--color-dark)
         font-weight: 500
         padding: 0.3rem 0.1rem
         position: relative
@@ -155,7 +186,7 @@ a
     border-radius: var(--radius-small)
     border: 1px solid var(--color-border-strong)
     background: linear-gradient(135deg, rgba(127, 125, 251, 0.28), rgba(99, 251, 215, 0.22))
-    color: var(--color-ink-primary)
+    color: var(--color-dark)
     font-weight: 600
     box-shadow: var(--shadow-sharp)
 
@@ -169,7 +200,7 @@ a
     grid-template-columns: repeat(2, minmax(0, 1fr))
     gap: 3rem
     padding: 2rem 2.5rem 3rem
-    background: linear-gradient(160deg, rgba(222, 233, 162, 0.2), rgba(160, 240, 248, 0.28))
+    background: linear-gradient(160deg, var(--hero-start), var(--hero-stop))
     border-radius: var(--radius-large)
     border: 1px solid var(--color-border)
     box-shadow: var(--shadow-soft)
@@ -225,7 +256,7 @@ a
 .button.ghost
     background: transparent
     border-color: rgba(202, 169, 255, 0.45)
-    color: var(--color-ink-primary)
+    color: var(--color-dark)
 
     &:hover, &:focus-visible
         border-color: rgba(202, 169, 255, 0.7)
@@ -239,7 +270,8 @@ a
     padding: 1.5rem
     border-radius: var(--radius-medium)
     border: 1px solid transparent
-    background: linear-gradient(150deg, rgba(143, 221, 255, 0.32), rgba(202, 169, 255, 0.18)) border-box, linear-gradient(180deg, rgba(12, 20, 38, 0.95), rgba(14, 24, 44, 0.88)) padding-box
+    /* Theme-aware gradients: tint border with sky→rose, fill with surface vars */
+    background: linear-gradient(150deg, var(--bg-sky), var(--bg-rose)) border-box, linear-gradient(180deg, var(--color-surface-strong), var(--color-surface)) padding-box
     box-shadow: var(--shadow-soft)
     min-height: 100%
 
@@ -272,7 +304,8 @@ main
     width: min(100%, var(--max-width))
     margin: 0 auto
     padding: 3.5rem 2.5rem
-    background: linear-gradient(165deg, rgba(12, 20, 38, 0.94), rgba(13, 22, 40, 0.82))
+    // Theme-aware layered gradients: subtle color wash over surfaces
+    background: linear-gradient(160deg, var(--bg-iris), var(--bg-rose)), linear-gradient(165deg, var(--color-surface-strong), var(--color-surface))
     border-radius: var(--radius-large)
     border: 1px solid rgba(143, 221, 255, 0.3)
     box-shadow: var(--shadow-soft)
@@ -310,7 +343,8 @@ main
     padding: 1.8rem
     border-radius: var(--radius-medium)
     border: 1px solid rgba(143, 221, 255, 0.35)
-    background: linear-gradient(150deg, rgba(24, 38, 70, 0.9), rgba(14, 24, 44, 0.78))
+    // Sky→Aqua tint over surfaces for clarity in both themes
+    background: linear-gradient(150deg, var(--bg-sky), var(--bg-aqua)), linear-gradient(180deg, var(--color-surface-strong), var(--color-surface))
     box-shadow: 0 16px 42px rgba(10, 14, 32, 0.35)
 
     h3
@@ -330,7 +364,8 @@ main
     padding: 1.8rem
     border-radius: var(--radius-medium)
     border: 1px solid rgba(127, 125, 251, 0.45)
-    background: linear-gradient(160deg, rgba(18, 30, 64, 0.92), rgba(18, 30, 64, 0.82))
+    // Iris→Rose tint over surfaces for a slightly richer feel
+    background: linear-gradient(150deg, var(--bg-iris), var(--bg-rose)), linear-gradient(180deg, var(--color-surface-strong), var(--color-surface))
     box-shadow: var(--shadow-soft)
     transition: transform var(--transition-base), box-shadow var(--transition-base)
 
@@ -366,7 +401,8 @@ main
     padding: 1.9rem
     border-radius: var(--radius-medium)
     border: 1px solid rgba(143, 221, 255, 0.32)
-    background: linear-gradient(155deg, rgba(18, 30, 64, 0.94), rgba(20, 36, 60, 0.82))
+    // Sky→Iris tint over surfaces to differentiate from experience cards
+    background: linear-gradient(150deg, var(--bg-sky), var(--bg-iris)), linear-gradient(180deg, var(--color-surface-strong), var(--color-surface))
     box-shadow: 0 18px 48px rgba(8, 12, 28, 0.4)
 
     h3
