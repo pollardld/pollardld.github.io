@@ -1,0 +1,39 @@
+# Banned claim patterns — enforced by scripts/check-claims.sh (Task 02)
+#
+# Every line that is not a comment or blank is an extended-regex pattern. The guard
+# fails the build if any pattern matches inside the content files it scans
+# (index.html, projects/*.html, resume_data.json, README.md).
+#
+# WHY these are banned: each is a precise number currently claimed on the site or in
+# resume_data.json with no visible source. The dossier's verdict is that the public
+# record already contains stronger, verifiable achievements, so unsourced precision
+# buys nothing and costs credibility. A number may return to the site only after it is
+# added to EVIDENCE-LEDGER.md with a dated source, a defined baseline, and David's role
+# in producing it — at which point delete its line from this file in the same commit.
+#
+# HOW to satisfy the guard: replace the number with verifiable scope language. The
+# approved replacements are already written into the content/*.md files.
+
+600,?000
+600k
+5,?443
+2M\+ ?acres
+2 million acres
+\$20M
+\$20 million
+\$3M
+\$3 million
+\$5,?000
+[Dd]oubled renewals
+40% (increase|participation|more)
+30% (faster|reduction|less|fewer)
+20% (less|fewer|reduction)
+30% (increase|civic)
+
+# Marketing vocabulary the voice guide forbids
+[Pp]assionate about
+[Cc]utting-edge
+[Bb]est-in-class
+[Gg]ame-chang
+[Ss]pearhead
+[Ll]everag(ed|ing) (a|an|the|our)
