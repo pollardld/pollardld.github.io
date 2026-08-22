@@ -11,3 +11,10 @@ Thumbs.db
 
 # Source maps
 static/css/*.map
+
+# Lockfile: intentionally untracked (pinning sass is a separate decision)
+package-lock.json
+
+# Working aids, not site content
+portfolio-evidence-rebuild-tasks/
+portfolio-evidence-rebuild-tasks.tar.gz
