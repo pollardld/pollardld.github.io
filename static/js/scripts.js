@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const sections = Array.from(document.querySelectorAll("section[id]"));
     const navLinks = Array.from(document.querySelectorAll(".site-nav a[href^='#']"));
-    const experienceGrid = document.querySelector("[data-experience-grid]");
     const orbs = Array.from(document.querySelectorAll("[data-orb]"));
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -56,47 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     activateNavigation();
     window.addEventListener("scroll", activateNavigation, { passive: true });
-
-    // Show a lightweight skeleton while loading experience
-    if (experienceGrid) {
-        experienceGrid.innerHTML = `
-            <article class="experience-card reveal">
-                <h3>Loading…</h3>
-                <p class="loading-text">Fetching experience data.</p>
-            </article>
-        `;
-        fetch("resume_data.json")
-            .then(response => response.json())
-            .then(data => {
-                const experiences = Array.isArray(data.experience) ? data.experience : [];
-
-                if (!experiences.length) {
-                    experienceGrid.innerHTML = "<p class=\"loading-text\">Experience information is coming soon.</p>";
-                    return;
-                }
-
-                experienceGrid.innerHTML = "";
-
-                experiences.forEach(exp => {
-                    const card = document.createElement("article");
-                    card.className = "experience-card reveal tilt";
-                    card.innerHTML = `
-                        <h3>${exp.role ?? "Role"}</h3>
-                        <h4>${exp.company ?? ""}</h4>
-                        <p class="experience-date">${exp.date ?? ""}</p>
-                        <p>${exp.description ?? ""}</p>
-                    `;
-                    experienceGrid.appendChild(card);
-                });
-                // Trigger reveal on dynamically inserted items
-                setupReveal();
-                setupTilt();
-            })
-            .catch(error => {
-                console.error("Error loading experience data", error);
-                experienceGrid.innerHTML = "<p class=\"loading-text\">Unable to load experience at the moment.</p>";
-            });
-    }
 
     // Pointer-tilt on cards
     function setupTilt() {

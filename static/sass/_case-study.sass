@@ -1,0 +1,102 @@
+// Case-study page layout.
+// Deliberately small: the case-study pages reuse .content-section, .section-inner,
+// .section-eyebrow, .chip, .text-link, .button and .reveal from styles.sass. Only the
+// things that have no equivalent on the home page are defined here.
+
+.case-hero
+    padding: 7rem 1.5rem 2.5rem
+    max-width: var(--max-width)
+    margin: 0 auto
+
+    h1
+        font-family: var(--font-serif)
+        font-size: clamp(2.4rem, 6vw, 3.6rem)
+        line-height: 1.05
+        margin: 0.6rem 0 0
+        color: var(--color-ink-primary)
+
+.case-back
+    display: inline-flex
+    align-items: center
+    gap: 0.4rem
+    font-size: 0.85rem
+    letter-spacing: 0.08em
+    text-transform: uppercase
+    color: var(--color-ink-muted)
+    text-decoration: none
+    transition: color var(--transition-base)
+
+    &:hover,
+    &:focus-visible
+        color: var(--color-accent-aqua)
+
+.case-meta
+    display: flex
+    flex-wrap: wrap
+    gap: 0.6rem
+    align-items: center
+    margin-top: 1.4rem
+
+.case-status
+    display: inline-flex
+    align-items: center
+    gap: 0.45rem
+    padding: 0.3rem 0.8rem
+    border-radius: 999px
+    border: 1px solid var(--color-border)
+    background: var(--color-surface)
+    color: var(--color-ink-secondary)
+    font-size: 0.8rem
+    letter-spacing: 0.04em
+
+    &::before
+        content: ""
+        width: 0.5rem
+        height: 0.5rem
+        border-radius: 50%
+        background: var(--color-accent-aqua)
+
+    &.is-progress::before
+        background: var(--color-accent-rose)
+
+.case-body
+    max-width: 68ch
+    margin: 0 auto
+    padding: 0 1.5rem 4rem
+
+    section
+        margin-top: 2.75rem
+
+    h2
+        font-size: 0.82rem
+        letter-spacing: 0.18em
+        text-transform: uppercase
+        color: var(--color-ink-muted)
+        margin: 0 0 0.75rem
+        font-weight: 600
+
+    p
+        color: var(--color-ink-secondary)
+        line-height: 1.7
+        margin: 0 0 1rem
+        font-size: 1.03rem
+
+.case-links
+    display: flex
+    flex-wrap: wrap
+    gap: 0.75rem
+    margin-top: 3rem
+    padding-top: 1.75rem
+    border-top: 1px solid var(--color-border)
+
+.case-next
+    max-width: 68ch
+    margin: 0 auto 5rem
+    padding: 0 1.5rem
+
+@media (max-width: 720px)
+    .case-hero
+        padding-top: 5.5rem
+
+    .case-body p
+        font-size: 1rem

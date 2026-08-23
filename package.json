@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "build:css": "sass static/sass/styles.sass static/css/styles.css --style=compressed",
-    "watch:css": "sass static/sass/styles.sass static/css/styles.css --watch"
+    "watch:css": "sass static/sass/styles.sass static/css/styles.css --watch",
+    "build:experience": "python3 scripts/render-experience.py",
+    "verify": "python3 scripts/check-html.py && python3 scripts/render-experience.py --check"
   },
   "devDependencies": {
     "sass": "^1.77.0"
