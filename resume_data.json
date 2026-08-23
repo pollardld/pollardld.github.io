@@ -4,31 +4,37 @@
             "company": "Ecotrust",
             "role": "Software Engineering Manager",
             "date": "Jan 2025 - Present",
-            "description": "Leading software projects and strategic partnerships to deliver innovative solutions."
+            "description": "Engineering management, platform architecture, and technology governance across Ecotrust's software portfolio."
         },
         {
             "company": "Ecotrust",
             "role": "Senior Software Developer",
             "date": "Jan 2021 - Jan 2025",
-            "description": "Led engineering projects focusing on ecosystem and community technology solutions."
+            "description": "Long-horizon engineering on LandMapper, Snow2Flow, and the Indigenous Traditional Knowledge Database: releases, data migrations, security, and deployment."
         },
         {
             "company": "Ecotrust",
             "role": "Software Developer",
             "date": "Jan 2018 - Jan 2021",
-            "description": "Developed tools for species migration monitoring and ecological decision support systems."
+            "description": "Engineering lead on OceanAdapt. Ecological decision-support tools for fisheries, forestry, and regional food systems."
+        },
+        {
+            "company": "Ecotrust",
+            "role": "Software Experience Developer",
+            "date": "Aug 2016 - Jan 2018",
+            "description": ""
         },
         {
             "company": "Alta Planning + Design",
             "role": "Full Stack Developer",
-            "date": "Mar 2014 - Aug 2018",
+            "date": "Mar 2014 - Aug 2016",
             "description": "Public-facing civic and transportation tools, including bicycle route mapping and Safe Routes to School planning."
         },
         {
             "company": "Bisk Education",
             "role": "Front End Developer",
-            "date": "Jan 2012 - Mar 2024",
-            "description": "Built a front-end framework for online education, enhancing user experience."
+            "date": "Jan 2012 - Mar 2014",
+            "description": "A reusable front-end framework for online university programs."
         }
     ]
 }
