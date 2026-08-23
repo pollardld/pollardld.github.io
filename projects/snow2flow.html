@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snow2Flow — David Pollard</title>
+    <meta name="description"
+        content="Turning forest hydrology models into a map-based scenario workflow that restoration practitioners can run themselves.">
+    <link rel="canonical" href="https://pollardld.com/projects/snow2flow.html">
+    <meta property="og:title" content="Snow2Flow — David Pollard">
+    <meta property="og:description"
+        content="Turning forest hydrology models into a map-based scenario workflow that restoration practitioners can run themselves.">
+    <meta property="og:url" content="https://pollardld.com/projects/snow2flow.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header" id="top">
+        <nav class="site-nav iridescent iridescent--bevel" id="top-nav" aria-label="Primary">
+            <a class="brand" href="../index.html">David Pollard</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#projects">Work</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../static/pdf/Profile.pdf" target="_blank" rel="noopener">Resume</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+            <button class="button ghost" data-theme-toggle aria-pressed="false" title="Toggle theme">Theme</button>
+            <a class="nav-cta" href="../index.html#contact">Let's Connect</a>
+        </nav>
+
+        <div class="case-hero">
+            <a class="case-back" href="../index.html#projects">← All case studies</a>
+            <p class="section-eyebrow">Forest and watershed restoration · Ecotrust with the Upper Columbia Salmon Recovery Board</p>
+            <h1>Snow2Flow</h1>
+            <div class="case-meta">
+                <span class="case-status">Live</span>
+                <span class="chip">Application engineer</span>
+                <span class="chip">Geospatial</span>
+                <span class="chip">Scenario modeling</span>
+                <span class="chip">Data visualization</span>
+            </div>
+        </div>
+        <div class="iridescent-orb orb-1" data-orb aria-hidden="true"></div>
+    </header>
+
+    <main id="main-content" class="case-body">
+        <section class="reveal" aria-labelledby="ctx">
+            <h2 id="ctx">Context</h2>
+            <p>Forest treatment changes how snow accumulates, how long it stays, and when it reaches a stream. For
+                salmon recovery in north-central Washington, that timing is the whole question. The modelling to
+                answer it existed; the ability for a restoration practitioner to ask it about a particular stream, on
+                a particular day, did not.</p>
+        </section>
+
+        <section class="reveal" aria-labelledby="dec">
+            <h2 id="dec">Decision</h2>
+            <p>I treated this as product translation rather than as web development. A hydrologic model answers
+                whatever you ask it precisely; a practitioner needs to be walked from "I care about this stream" to
+                "here is what these treatments would do to its flow" without learning the model. So the design
+                problem was the sequence of steps, not the maps — the maps only had to make each step obvious.</p>
+        </section>
+
+        <section class="reveal" aria-labelledby="con">
+            <h2 id="con">Contribution</h2>
+            <p>My commit history sits in that scenario workflow: choosing a scenario type, selecting streams,
+                loading and rendering the geospatial layers, defining treatment areas, and presenting modeled results
+                as panels and charts a practitioner can read and compare.</p>
+        </section>
+
+        <section class="reveal" aria-labelledby="res">
+            <h2 id="res">Result</h2>
+            <p>Snow2Flow is a free, public decision-support tool, described on its own site as helping forest and
+                stream restoration practitioners support salmon recovery across north-central Washington. Adoption
+                figures — who uses it, and which restoration decisions it has shaped — are held in the evidence
+                ledger until UCSRB can supply them. The contribution is documented; the reach is not yet, and this
+                page will not claim it.</p>
+        </section>
+
+        <section class="reveal" aria-labelledby="lrn">
+            <h2 id="lrn">Learning</h2>
+            <p>Building a scenario tool taught me that the interface is where a model's assumptions become visible
+                to people who did not make them. Every default I chose was, quietly, a recommendation. That is a
+                responsibility, and it is why I now want a domain expert reviewing the defaults, not just the
+                outputs.</p>
+        </section>
+
+        <div class="case-links">
+            <a class="button primary" href="https://s2f.ucsrb.org/" target="_blank" rel="noopener">Open Snow2Flow</a>
+            <a class="button ghost" href="https://www.ucsrb.org/snow2flow-ridgetop-to-river-restoration/" target="_blank" rel="noopener">Project overview from UCSRB</a>
+            <a class="button ghost" href="https://github.com/Ecotrust/ucsrb" target="_blank" rel="noopener">View the source</a>
+        </div>
+    </main>
+
+    <div class="case-next">
+        <a class="text-link" href="oregon-harvest.html">Next: Oregon Harvest for Schools →</a>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 David Pollard. All rights reserved.</p>
+        <a class="text-link" href="../index.html#projects">All case studies</a>
+        <a class="text-link" href="../static/pdf/Profile.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+    </footer>
+
+    <script src="../static/js/scripts.js" defer></script>
+    <script src="../static/js/iridescent.js" defer></script>
+</body>
+
+</html>
