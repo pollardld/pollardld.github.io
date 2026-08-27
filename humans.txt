@@ -1,0 +1,20 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Engineer: David Pollard (pollardld)
+    Owner: David Pollard (pollardld)
+    Creator: David Pollard (pollardld)
+
+# THANKS
+
+    Many thanks to each of you that has provided mentorship, support, collaboration, and friendship.
+
+
+# TECHNOLOGY COLOPHON
+
+    SASS, HTML, JavaScript
+    Python3
+    Node.js, npm
+    GitHub pages
