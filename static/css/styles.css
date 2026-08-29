@@ -376,6 +376,7 @@ a {
   flex-direction: column;
   gap: 3rem;
   align-items: center;
+  overflow: hidden;
 }
 
 .site-nav {
