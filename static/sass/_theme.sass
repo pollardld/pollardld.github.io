@@ -1,0 +1,38 @@
+html[data-theme='light']
+    /* Slightly soften overlays on light theme */
+    --bg-iris: rgba(127, 125, 251, 0.12)
+    --bg-sky: rgba(71, 197, 255, 0.12)
+    --bg-aqua: rgba(99, 251, 215, 0.10)
+    --bg-rose: rgba(202, 169, 255, 0.14)
+
+    --hero-start: rgba(222, 233, 162, 0.14)
+    --hero-stop: rgba(160, 240, 248, 0.18)
+
+    body::before
+        /* Screen can wash out on light—use multiply and lower strength */
+        mix-blend-mode: multiply
+        opacity: 0.55
+
+    body::after
+        filter: saturate(115%)
+        opacity: 0.8
+
+    .button.ghost
+        color: var(--color-dark)
+
+    
+    /*====== HEADER ========*/
+    
+    /* Navigation */
+    
+    .brand
+        color: var(--color-accent-greeny)
+    
+    .nav-links
+    
+        a
+            color: var(--color-dark)
+
+    .nav-cta
+        color: var(--color-dark)
+
