@@ -1,4 +1,5 @@
 @use "vars"
+@use "theme"
 @use "iridescent"
 @use "case-study"
 
@@ -12,16 +13,6 @@
     /* Hero gradient stops */
     --hero-start: rgba(222, 233, 162, 0.20)
     --hero-stop: rgba(160, 240, 248, 0.28)
-
-html[data-theme='light']
-    /* Slightly soften overlays on light theme */
-    --bg-iris: rgba(127, 125, 251, 0.12)
-    --bg-sky: rgba(71, 197, 255, 0.12)
-    --bg-aqua: rgba(99, 251, 215, 0.10)
-    --bg-rose: rgba(202, 169, 255, 0.14)
-
-    --hero-start: rgba(222, 233, 162, 0.14)
-    --hero-stop: rgba(160, 240, 248, 0.18)
 
 *
     box-sizing: border-box
@@ -53,11 +44,6 @@ body::before
     animation: shimmer 18s ease-in-out infinite alternate
     z-index: -2
 
-html[data-theme='light'] body::before
-    /* Screen can wash out on light—use multiply and lower strength */
-    mix-blend-mode: multiply
-    opacity: 0.55
-
 body::after
     content: ""
     position: fixed
@@ -68,18 +54,13 @@ body::after
     animation: drift 26s ease-in-out infinite alternate
     z-index: -3
 
-html[data-theme='light'] body::after
-    filter: saturate(115%)
-    opacity: 0.8
-
 @media (prefers-reduced-motion: reduce)
     body::before, body::after
         animation: none
 
 h1, h2, h3
     font-family: var(--font-serif)
-    line-height: 1.2
-    letter-spacing: -0.02em
+    line-height: 1.375
 
 p
     color: var(--color-ink-secondary)
@@ -135,32 +116,27 @@ a
     align-items: center
 
 .site-nav
-    width: min(100%, var(--max-width))
-    display: flex
     align-items: center
-    justify-content: space-between
+    display: flex
     gap: 1.5rem
+    justify-content: space-between
     padding: 1rem 1.5rem
-    background: linear-gradient(45deg, rgba(245, 245, 248, 0.98), rgba(240, 246, 250, 0.85))
-    border-radius: var(--radius-large)
-    border: 1px solid var(--color-border)
-    box-shadow: var(--shadow-soft)
-    backdrop-filter: blur(16px)
+    width: min(100%, var(--max-width))
 
 .brand
     font-family: var(--font-serif)
     font-size: 1.4rem
     letter-spacing: 0.08em
     text-transform: uppercase
-    color: var(--color-accent-greeny)
+    color: var(--color-light)
 
 .nav-links
     display: flex
-    gap: 1.25rem
+    gap: 2rem
     flex-wrap: wrap
 
     a
-        color: var(--color-dark)
+        color: var(--color-light)
         font-weight: 500
         padding: 0.3rem 0.1rem
         position: relative
@@ -191,7 +167,7 @@ a
     border-radius: var(--radius-small)
     border: 1px solid var(--color-border-strong)
     background: linear-gradient(135deg, rgba(127, 125, 251, 0.28), rgba(99, 251, 215, 0.22))
-    color: var(--color-dark)
+    color: var(--color-light)
     font-weight: 600
     box-shadow: var(--shadow-sharp)
 
@@ -202,7 +178,7 @@ a
 .hero
     width: min(100%, var(--max-width))
     display: grid
-    grid-template-columns: repeat(2, minmax(0, 1fr))
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr)
     gap: 3rem
     padding: 2rem 2.5rem 3rem
     background: linear-gradient(160deg, var(--hero-start), var(--hero-stop))
@@ -261,7 +237,7 @@ a
 .button.ghost
     background: transparent
     border-color: rgba(202, 169, 255, 0.45)
-    color: var(--color-dark)
+    color: var(--color-light)
 
     &:hover, &:focus-visible
         border-color: rgba(202, 169, 255, 0.7)
@@ -480,7 +456,7 @@ main
         justify-content: center
 
     .hero-highlight
-        grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr))
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr))
 
     .site-nav
         flex-wrap: wrap
