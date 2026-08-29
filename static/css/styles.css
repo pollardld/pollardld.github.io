@@ -665,7 +665,7 @@ main {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 35vw), 1fr));
   gap: 1.5rem;
 }
 
