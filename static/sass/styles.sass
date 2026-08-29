@@ -177,6 +177,36 @@ a
     &:hover, &:focus-visible
         border-color: var(--color-border-strong)
 
+.theme-toggle
+    display: inline-grid
+    place-items: center
+    width: 2.4rem
+    height: 2.4rem
+    padding: 0
+    border: none
+    background: transparent
+    color: var(--color-light)
+    border-radius: 50%
+    transition: color var(--transition-base), background var(--transition-base)
+
+    &:hover, &:focus-visible
+        background: var(--color-surface)
+
+    .icon
+        grid-area: 1 / 1
+        width: 1.3rem
+        height: 1.3rem
+
+    .icon-moon
+        display: none
+
+html[data-theme='light'] .theme-toggle
+    .icon-sun
+        display: none
+
+    .icon-moon
+        display: block
+
 .hero
     width: min(100%, var(--max-width))
     display: grid
