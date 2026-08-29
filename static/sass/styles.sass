@@ -82,9 +82,13 @@ a
     color: var(--color-accent-sky)
     font-weight: 600
     letter-spacing: 0.01em
+    text-decoration: underline
+    text-underline-offset: 0.2em
+    text-decoration-color: transparent
 
     &:hover, &:focus-visible
         color: var(--color-accent-aqua)
+        text-decoration-color: currentColor
 
 .skip-link
     position: absolute
@@ -104,7 +108,6 @@ a
     background: var(--color-surface-strong)
     border-radius: var(--radius-small)
     border: 1px solid var(--color-border)
-    box-shadow: var(--shadow-soft)
     z-index: 10
 
 .site-header
@@ -170,11 +173,9 @@ a
     background: linear-gradient(135deg, rgba(127, 125, 251, 0.28), rgba(99, 251, 215, 0.22))
     color: var(--color-light)
     font-weight: 600
-    box-shadow: var(--shadow-sharp)
 
     &:hover, &:focus-visible
-        border-color: rgba(202, 169, 255, 0.65)
-        box-shadow: 0 15px 40px rgba(74, 114, 255, 0.35)
+        border-color: var(--color-border-strong)
 
 .hero
     width: min(100%, var(--max-width))
@@ -184,8 +185,7 @@ a
     padding: 2rem 2.5rem 3rem
     background: linear-gradient(160deg, var(--hero-start), var(--hero-stop))
     border-radius: var(--radius-large)
-    border: 1px solid var(--color-border)
-    box-shadow: var(--shadow-soft)
+    // border: 1px solid var(--color-border)
     backdrop-filter: blur(18px)
 
 .hero-content
@@ -223,26 +223,23 @@ a
     border: 1px solid transparent
     font-weight: 600
     letter-spacing: 0.02em
-    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base)
+    transition: transform var(--transition-base), border-color var(--transition-base)
 
 .button.primary
     background: linear-gradient(135deg, rgba(127, 125, 251, 0.95), rgba(99, 251, 215, 0.72))
     color: #061321
-    box-shadow: 0 18px 40px rgba(106, 186, 255, 0.35)
 
     &:hover, &:focus-visible
-        transform: translateY(-3px)
-        box-shadow: 0 24px 50px rgba(106, 186, 255, 0.42)
-        border-color: rgba(99, 251, 215, 0.8)
+        transform: translateY(-2px)
+        border-color: var(--color-border-strong)
 
 .button.ghost
     background: transparent
-    border-color: rgba(202, 169, 255, 0.45)
+    border-color: var(--color-border)
     color: var(--color-light)
 
     &:hover, &:focus-visible
-        border-color: rgba(202, 169, 255, 0.7)
-        box-shadow: 0 16px 35px rgba(106, 186, 255, 0.25)
+        border-color: var(--color-border-strong)
 
 .hero-highlight
     display: grid
@@ -254,7 +251,6 @@ a
     border: 1px solid transparent
     /* Theme-aware gradients: tint border with sky→rose, fill with surface vars */
     background: linear-gradient(150deg, var(--bg-sky), var(--bg-rose)) border-box, linear-gradient(180deg, var(--color-surface-strong), var(--color-surface)) padding-box
-    box-shadow: var(--shadow-soft)
     min-height: 100%
 
 .highlight-eyebrow
@@ -289,8 +285,7 @@ main
     // Theme-aware layered gradients: subtle color wash over surfaces
     background: linear-gradient(160deg, var(--bg-iris), var(--bg-rose)), linear-gradient(165deg, var(--color-surface-strong), var(--color-surface))
     border-radius: var(--radius-large)
-    border: 1px solid rgba(143, 221, 255, 0.3)
-    box-shadow: var(--shadow-soft)
+    // border: 1px solid var(--color-border)
     overflow: hidden
 
 .section-inner
@@ -324,10 +319,9 @@ main
 .feature-card
     padding: 1.8rem
     border-radius: var(--radius-medium)
-    border: 1px solid rgba(143, 221, 255, 0.35)
+    border: 1px solid var(--color-border)
     // Sky→Aqua tint over surfaces for clarity in both themes
     background: linear-gradient(150deg, var(--bg-sky), var(--bg-aqua)), linear-gradient(180deg, var(--color-surface-strong), var(--color-surface))
-    box-shadow: 0 16px 42px rgba(10, 14, 32, 0.35)
 
     h3
         font-size: 1.3rem
@@ -345,15 +339,14 @@ main
 .experience-card
     padding: 1.8rem
     border-radius: var(--radius-medium)
-    border: 1px solid rgba(127, 125, 251, 0.45)
+    border: 1px solid var(--color-border)
     // Iris→Rose tint over surfaces for a slightly richer feel
     background: linear-gradient(150deg, var(--bg-iris), var(--bg-rose)), linear-gradient(180deg, var(--color-surface-strong), var(--color-surface))
-    box-shadow: var(--shadow-soft)
-    transition: transform var(--transition-base), box-shadow var(--transition-base)
+    transition: transform var(--transition-base), border-color var(--transition-base)
 
     &:hover, &:focus-within
-        transform: translateY(-6px)
-        box-shadow: 0 24px 60px rgba(71, 197, 255, 0.35)
+        transform: translateY(-4px)
+        border-color: var(--color-border-strong)
 
     h3
         margin: 0
@@ -382,10 +375,14 @@ main
 .project-card
     padding: 1.9rem
     border-radius: var(--radius-medium)
-    border: 1px solid rgba(143, 221, 255, 0.32)
+    border: 1px solid var(--color-border)
     // Sky→Iris tint over surfaces to differentiate from experience cards
     background: linear-gradient(150deg, var(--bg-sky), var(--bg-iris)), linear-gradient(180deg, var(--color-surface-strong), var(--color-surface))
-    box-shadow: 0 18px 48px rgba(8, 12, 28, 0.4)
+    transition: transform var(--transition-base), border-color var(--transition-base)
+
+    &:hover, &:focus-within
+        transform: translateY(-4px)
+        border-color: var(--color-border-strong)
 
     h3
         margin: 0 0 0.75rem
@@ -547,13 +544,22 @@ main
 
 /* Small accent components */
 .chip
-    display: inline-block
-    padding: 0.25rem 0.6rem
-    border-radius: 999px
-    border: 1px solid var(--color-border)
-    color: var(--color-ink-secondary)
-    background: linear-gradient(135deg, rgba(127,125,251,0.12), rgba(99,251,215,0.08))
-    margin: 0.15rem 0.25rem 0 0
+    display: inline-flex
+    align-items: center
+    gap: 0.35rem
+    font-size: 0.75rem
+    font-weight: 600
+    letter-spacing: 0.08em
+    text-transform: uppercase
+    color: var(--color-accent-sky)
+    margin: 0.15rem 0.5rem 0 0
+
+    &::before
+        content: ""
+        width: 0.4rem
+        height: 0.4rem
+        border-radius: 50%
+        background: currentColor
 
 .now-badge
     display: inline-block
@@ -580,7 +586,7 @@ main
 .tilt
     transform-style: preserve-3d
     will-change: transform
-    transition: transform 200ms var(--transition-base), box-shadow var(--transition-base)
+    transition: transform 200ms var(--transition-base)
 
 .tilt:hover, .tilt:focus-within
     transform: rotateX(var(--tiltX, 0deg)) rotateY(var(--tiltY, 0deg))
