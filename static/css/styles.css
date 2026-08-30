@@ -852,6 +852,9 @@ main {
   .feature-grid, .experience-grid, .project-grid {
     gap: 1.1rem;
   }
+  .project-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
   .nav-links {
     gap: 0.8rem 1rem;
     justify-content: space-between;
