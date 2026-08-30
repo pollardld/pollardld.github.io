@@ -5,14 +5,22 @@
 
 :root
     /* Accent wash for backgrounds (dark defaults) */
-    --bg-iris: rgba(127, 125, 251, 0.18)
-    --bg-sky: rgba(71, 197, 255, 0.18)
-    --bg-aqua: rgba(99, 251, 215, 0.12)
-    --bg-rose: rgba(202, 169, 255, 0.18)
+    --background-glow-opacity: 0.72
+    --background-glow-saturation: 112%
+    --background-wash-opacity: 0.42
+    --bg-aqua: rgba(99, 251, 215, 0.07)
+    --bg-iris: rgba(127, 125, 251, 0.10)
+    --bg-rose: rgba(202, 169, 255, 0.10)
+    --bg-sky: rgba(71, 197, 255, 0.10)
+    --drift-duration: 42s
+    --orb-opacity: 0.18
+    --orb-start: rgba(143, 221, 255, 0.26)
+    --orb-stop: rgba(99, 251, 215, 0.05)
+    --shimmer-duration: 30s
 
     /* Hero gradient stops */
-    --hero-start: rgba(222, 233, 162, 0.20)
-    --hero-stop: rgba(160, 240, 248, 0.28)
+    --hero-start: rgba(222, 233, 162, 0.12)
+    --hero-stop: rgba(160, 240, 248, 0.16)
 
 *
     box-sizing: border-box
@@ -40,8 +48,8 @@ body::before
     inset: 0
     background: linear-gradient(125deg, var(--bg-iris), var(--bg-aqua), var(--bg-rose))
     mix-blend-mode: screen
-    opacity: 0.7
-    animation: shimmer 18s ease-in-out infinite alternate
+    opacity: var(--background-wash-opacity)
+    animation: shimmer var(--shimmer-duration) ease-in-out infinite alternate
     z-index: -2
 
 body::after
@@ -49,9 +57,9 @@ body::after
     position: fixed
     inset: -15% -25%
     background: radial-gradient(60% 60% at 30% 20%, var(--bg-sky), transparent 70%), radial-gradient(45% 55% at 75% 60%, var(--bg-rose), transparent 70%), var(--color-background-glow)
-    filter: saturate(130%)
-    opacity: 0.9
-    animation: drift 26s ease-in-out infinite alternate
+    filter: saturate(var(--background-glow-saturation))
+    opacity: var(--background-glow-opacity)
+    animation: drift var(--drift-duration) ease-in-out infinite alternate
     z-index: -3
 
 @media (prefers-reduced-motion: reduce)
@@ -445,9 +453,9 @@ main
     position: absolute
     border-radius: 50%
     filter: blur(0px)
-    opacity: 0.65
+    opacity: var(--orb-opacity)
     pointer-events: none
-    background: radial-gradient(circle at 30% 30%, rgba(143, 221, 255, 0.8), rgba(99, 251, 215, 0.2) 45%, transparent 75%)
+    background: radial-gradient(circle at 30% 30%, var(--orb-start), var(--orb-stop) 45%, transparent 75%)
     mix-blend-mode: screen
     transition: transform 1s ease, opacity 0.6s ease
 
@@ -577,19 +585,29 @@ main
     display: inline-flex
     align-items: center
     gap: 0.35rem
-    font-size: 0.75rem
+    color: var(--color-ink-muted)
+    font-size: 0.7rem
     font-weight: 600
-    letter-spacing: 0.08em
-    text-transform: uppercase
-    color: var(--color-accent-sky)
+    letter-spacing: 0.1em
     margin: 0.15rem 0.5rem 0 0
+    text-transform: uppercase
 
     &::before
-        content: ""
-        width: 0.4rem
-        height: 0.4rem
-        border-radius: 50%
         background: currentColor
+        border-radius: 50%
+        content: ""
+        height: 0.35rem
+        opacity: 0.72
+        width: 0.35rem
+
+.chip--live
+    color: rgba(99, 251, 215, 0.78)
+
+.chip--retired
+    color: rgba(202, 169, 255, 0.72)
+
+.chip--wip
+    color: rgba(71, 197, 255, 0.74)
 
 .now-badge
     display: inline-block
